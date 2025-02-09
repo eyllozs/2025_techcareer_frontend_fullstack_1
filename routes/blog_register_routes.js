@@ -59,8 +59,8 @@ router.post("/", async (request, response) => {
     // Mongoose register Model Verileri Almak
     const create = new MongooseregisterModelApi({
         username: request.body.header,
-        password: request.body.content,
         email: request.body.author,
+        password: request.body.content,
     }); //end create
 
     // Mongoose register Modelda Alınan Verileri Gönder
