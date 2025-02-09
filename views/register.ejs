@@ -40,15 +40,15 @@ EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi veri
   <body class="container">
     <!-- start codes -->
 
-    <h1 class="text-center text-uppercase text-primary">Blog Sayfası</h1>
-    <p><%= csrfToken %></p>
+    <h1 class="text-center text-uppercase text-primary">Register Sayfası</h1>
+    <!-- <p><%= csrfToken %></p> -->
 
     <!-- Blog Form -->
     <!-- <form id="blog-form"> -->
     <!-- CSRF (Cross-Site Request Forgery):  action,POST için eklendi -->
     <!-- blog için express router(yönlendirmesini yapacağım bunun için server.ts gelen verilerden kullanacağım) -->
 
-    <form action="/register" method="POST" id="blog-form">
+    <form action="/register" method="POST" id="register-form">
       <!-- Dikkat: Eğer bunu yazmazsanız hata alırsınız. CSRF (Cross-Site Request Forgery) -->
       <input type="hidden" name="_csrf" id="_csrf" value="<%= csrfToken %>" />
 
@@ -61,7 +61,7 @@ EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi veri
           id="username"
           name="username"
           class="form-control"
-          placeholder="username başlığı"
+          placeholder="username"
           autofocus
         />
       </div>
@@ -75,7 +75,7 @@ EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi veri
           id="email"
           name="email"
           class="form-control"
-          placeholder="blog yazarı"
+          placeholder="email"
         />
       </div>
 
@@ -87,11 +87,11 @@ EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi veri
           class="form-control"
           name="password"
           id="password"
-          placeholder="password içeriği"
+          placeholder="password "
          
         ></textarea>
       </div>
-      <small id="char-count" class="text-success">Kalan Harf Sayısı: 2000</small>
+      
 
 
       

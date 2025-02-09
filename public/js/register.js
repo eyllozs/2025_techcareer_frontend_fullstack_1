@@ -20,71 +20,66 @@ $(document).ready(function () {
         $(element).after(`<small class="text-success valid-message">${message}</small>`);
     };
 
-    // İçerik harf sınırını kontrol etme fonksiyonu
-    const updateCharCount = () => {
-        const content = $("#content").val();
-        const charCount = content.length;
-        const remainingChars = maxChars - charCount;
+    // // İçerik harf sınırını kontrol etme fonksiyonu
+    // const updateCharCount = () => {
+    //     const content = $("#content").val();
+    //     const charCount = content.length;
+    //     const remainingChars = maxChars - charCount;
 
-        $("#char-count").text(`Kalan Harf Sayısı: ${remainingChars}`);
+    //     $("#char-count").text(`Kalan Harf Sayısı: ${remainingChars}`);
 
-        if (remainingChars < 0) {
-            $("#char-count").removeClass("text-success").addClass("text-danger");
-            showError("#content", "İçerik 2000 harften fazla olamaz!");
-        } else {
-            $("#char-count").removeClass("text-danger").addClass("text-success");
-            $(".error-message").remove();
-        }
-    };
+    //     if (remainingChars < 0) {
+    //         $("#char-count").removeClass("text-success").addClass("text-danger");
+    //         showError("#content", "İçerik 2000 harften fazla olamaz!");
+    //     } else {
+    //         $("#char-count").removeClass("text-danger").addClass("text-success");
+    //         $(".error-message").remove();
+    //     }
+    // };
 
     // Form doğrulama fonksiyonu
     const validateForm = () => {
         clearErrors();
         let isValid = true;
-        const content = $("#content").val();
-        const charCount = content.length;
+        const email = $("#email").val();
+        const charCount = email.length;
 
-        if ($("#header").val().trim() === "") {
-            showError("#header", "Başlık boş bırakılamaz!");
+        if ($("#username").val().trim() === "") {
+            showError("#username", "Kullanıcı adı boş bırakılamaz!");
             isValid = false;
         } else {
-            showValid("#header", "Başlık geçerli.");
+            showValid("#username", "Kullanıcı adı geçerli.");
         }
 
-        if (content.trim() === "") {
-            showError("#content", "İçerik boş bırakılamaz!");
+        if (email.trim() === "") {
+            showError("#email", "İçerik boş bırakılamaz!");
             isValid = false;
         } else if (charCount > maxChars) {
-            showError("#content", "İçerik 2000 harften fazla olamaz!");
+            showError("#email", "İçerik 2000 harften fazla olamaz!");
             isValid = false;
         } else {
-            showValid("#content", "İçerik geçerli.");
+            showValid("#email", "İçerik geçerli.");
         }
 
-        if ($("#author").val().trim() === "") {
-            showError("#author", "Yazar adı boş bırakılamaz!");
+        if ($("#password").val().trim() === "") {
+            showError("#password", "Yazar adı boş bırakılamaz!");
             isValid = false;
         } else {
-            showValid("#author", "Yazar adı geçerli.");
+            showValid("#password", "Yazar adı geçerli.");
         }
 
-        if ($("#tags").val().trim() === "") {
-            showError("#tags", "En az bir etiket eklemelisiniz!");
-            isValid = false;
-        } else {
-            showValid("#tags", "Etiket geçerli.");
-        }
+        
 
         return isValid;
     };
 
     // Kullanıcı içerik alanına yazdıkça harf sayısını güncelle
-    $("#content").on("input", function () {
+    $("#email").on("input", function () {
         updateCharCount();
     });
 
     // Kullanıcı input'a yazarken hataları kaldır ve geçerli mesaj ekle
-    $("#header, #author, #tags").on("input", function () {
+    $("#, #password, #email").on("input", function () {
         const field = $(this);
         if (field.val().trim() === "") {
             showError(field, "Bu alan boş bırakılamaz!");
