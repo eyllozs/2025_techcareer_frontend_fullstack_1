@@ -58,9 +58,9 @@ const handleError = (err, response, message) => {
 router.post("/", async (request, response) => {
     // Mongoose register Model Verileri Almak
     const create = new MongooseregisterModelApi({
-        username: request.body.header,
-        email: request.body.author,
-        password: request.body.content,
+        username: request.body.username,
+        email: request.body.email,
+        password: request.body.password,
     }); //end create
 
     // Mongoose register Modelda Alınan Verileri Gönder

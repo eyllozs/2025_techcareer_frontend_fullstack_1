@@ -48,12 +48,13 @@ const BlogRegisterSchema = new mongoose.Schema({
         // Enum Durum Alanı: status: Blog gönderisinin durumu "draft" veya "published" olarak belirlenir. Bu, bir gönderinin taslak mı yoksa yayınlanmış mı olduğunu gösterir.
         status: {
             type: String, enum: ["draft", "published"], default: "draft",
-        },
+        }
     }, //end BlogRegisterSchema {}
     {
         // Oluşturma ve güncellemem zamanları sisteme eklemek
         // Zaman Bilgileri: timestamps: createdAt ve updatedAt alanları otomatik olarak eklenir ve her işlemde güncellenir.
         timestamps: true,
+        collection: "MongoBlogRegisterModel" 
     }); //end PostSchema
 
 ////////////////////////////////////////////////////////////////////
@@ -98,5 +99,5 @@ BlogRegisterSchema.set("toJSON", {virtuals: true});
 // module.exports = mongoose.model("MongoBlogModel", BlogRegisterSchema);
 
 // 2.YOL
-const Blog = mongoose.model("MongoBlogRegisterModel", BlogRegisterSchema);
-module.exports = Blog;
+const Register = mongoose.model("MongoBlogRegisterModel", BlogRegisterSchema);
+module.exports = Register;
